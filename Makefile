@@ -1,5 +1,5 @@
 .PHONY: build
-EXENAME=user.command-gateway
+EXENAME=public-web
 build:
-	go build -v -o ./build/artifacts/$(EXENAME) ./cmd
+	go build -v -o ./build/$(EXENAME) ./cmd
 .DEFAULT_GOAL := build

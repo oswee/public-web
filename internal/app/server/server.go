@@ -1,4 +1,4 @@
-package app
+package server
 
 import (
 	"flag"
@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/oswee/internal/app/server/middleware"
 	"github.com/oswee/logger"
-	"github.com/oswee/public-web/app/middleware"
 )
 
 // Config is configuration for Server
