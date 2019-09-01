@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/oswee/public-web/app"
+	"github.com/oswee/public-web/internal/app/server"
 )
 
 func main() {
-	if err := app.RunServer(); err != nil {
+	if err := server.RunServer(); err != nil {
 		fmt.Fprintf(os.Stderr, "%v\n", err)
 		os.Exit(1)
 	}
