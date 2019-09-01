@@ -1,4 +1,4 @@
-module github.com/oswee/oswee/internal/web/public
+module github.com/oswee/public-web
 
 go 1.12
 
