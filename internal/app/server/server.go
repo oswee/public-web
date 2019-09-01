@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/oswee/internal/app/server/middleware"
 	"github.com/oswee/logger"
+	"github.com/oswee/public-web/internal/app/server/middleware"
 )
 
 // Config is configuration for Server
