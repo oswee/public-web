@@ -1,6 +1,10 @@
 # Oswee
 
-This is a **personal** distributed microservices **pet-project**.
+This is Front-end App for a **personal** distributed microservices **pet-project**.
+
+This repository is part of several repositories of working solution.
+You can run this app stand alone, but there will no be an API gateway and other required services.
+Those services and API documentation is placed in separate repositories.
 
 ## Motivation
 
@@ -11,7 +15,7 @@ Under "scalable" I mean application itself and development workflow as well. You
 
 Most recent version could be found in Develop branch.
 
-Trying to capture progress log in [Wiki](https://github.com/oswee/public-web/wiki/Log)
+I am trying to capture progress log in [Wiki](https://github.com/oswee/public-web/wiki/Log)
 
 ## This project contains a stack of
 
