@@ -10,6 +10,9 @@ storiesOf('Elements|Elements', module)
       <h1>Top header</h1>
     `,
   )
-  .add('UI Pill', () => html `
-    <ui-pill text="Pill"></ui-pill>
-  `);
+  .add(
+    'UI Pill',
+    () => html`
+      <ui-pill>Apollo 440</ui-pill>
+    `,
+  );

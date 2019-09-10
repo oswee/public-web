@@ -2,22 +2,29 @@ import { LitElement, customElement, property } from 'lit-element';
 import GlobalStyle from '../../assets/global-style';
 import Style from './style';
 import template from './template';
-import { Pill } from './models';
+import { Pill, Styling } from './models';
 
 @customElement('ui-pill')
 export class UiPill extends LitElement {
     public static styles = [GlobalStyle, Style];
+    // public static get styles() {
+    //   return [
+    //     GlobalStyle,
+    //     Style
+    //   ];
+    // }
+  
+    @property({ type: Object })
+    public pill: Pill = {
+      text: 'Not set',
+    };
 
-    @property({type:String})  
-    text = 'Test message';
-    
-    // @property({ type: Pill })
-    // public pill = {
-    //     text: 'Not set',
-    //     height: '1rem',
-    //     background: '#006AFF',
-    //     color: '#FFFFFF',
-    // };
+    @property({ type: Object})
+    public styling: Styling = {
+      height: '1rem',
+      background: '#006AFF',
+      color: '#FFFFFF',
+    };
 
     protected render() {
       return template.call(this);

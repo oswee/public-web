@@ -1,13 +1,16 @@
 import { css } from 'lit-element';
 
 export default css`
-	* {
-		box-sizing: border-box;
-	}
+    * {
+        box-sizing: border-box;
+    }
     :host([hidden]) {
         display: none;
     }
     :host {
+        --height: 1rem;
+        --background: #006AFF;
+        --color: #FFFFFF;
         display: inline-block;
         width: auto;
         min-width: var(--height);
@@ -18,14 +21,9 @@ export default css`
         cursor: default;
     }
     p {
-        font-size: 0.8em;
+        font-size: calc(var(--height) * 0.8);
         text-align: center;
         text-decoration: none;
         color: var(--color);
         margin: auto 0.5em;
-    }
-    h1 {
-        color: dodgerblue;
-        border: 1px solid green;
-    }
-`;
+    }`

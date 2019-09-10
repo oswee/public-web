@@ -4,7 +4,7 @@ import store, { submitSignin } from '../../store';
 import { SystemShell } from '../../containers/system-shell';
 import GlobalStyle from '../../assets/global-style';
 import Style from './style';
-import { SignIn } from './models'
+import { SignIn } from './models';
 import template from './template';
 
 @customElement('app-signin')

@@ -3,6 +3,6 @@ import { UiPill } from './index';
 
 export default function template(this: UiPill) {
 	return html`
-		<h1>${this.text}</h1>
+		<p>${this.pill.text}</p>
 	`;
 }
