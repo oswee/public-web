@@ -21,19 +21,14 @@ function initRouter() {
     const router = new Router(document.querySelector('main'));
     router.setRoutes([
         {
-            path: '/',
-            component: 'system-shell',
-            // animate: true,
-            children: [
+            path: '/', component: 'system-shell', children: [
                 { path: '/', component: 'app-home' },
                 { path: '/marketplace', component: 'app-marketplace' },
                 { path: '/apps', component: 'app-apps' },
                 { path: '/apps/routeplanner', component: 'app-route-planner' },
                 { path: '/services', component: 'app-services' },
                 {
-                    path: '/signin',
-                    component: 'app-signin',
-                    animate: false,
+                    path: '/signin', component: 'app-signin',
                 },
                 { path: '/signup', component: 'app-signup' },
                 { path: '/restore-password', component: 'app-restore-password' },

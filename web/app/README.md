@@ -22,3 +22,9 @@ npm run build
 [Anoblet's My Project Firebase](https://my-project-75792.firebaseapp.com)
 
 [Storybook + Typescript](https://github.com/wtulloch/litelement-webpack-base)
+
+    "@open-wc/demoing-storybook": "^0.3.0",
+    "@storybook/polymer": "^5.2.4",
+    "@storybook/preset-typescript": "^1.1.0",
+    "@storybook/react": "^5.1.11",
+    "@types/storybook__polymer": "^5.1.0",

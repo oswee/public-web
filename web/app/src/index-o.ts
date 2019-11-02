@@ -71,13 +71,11 @@ class Bootstrap extends LitElement {
 			{
 				path: '/',
 				component: 'app-shell',
-				// animate: true,
 				children: [
 					{ path: '/', component: 'app-home' },
 					{
 						path: '/signin',
 						component: 'app-signin',
-						animate: false,
 					},
 					{ path: '/signup', component: 'app-signup' },
 					{ path: '/restore-password', component: 'app-restore-password' },
