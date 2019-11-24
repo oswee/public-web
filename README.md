@@ -55,7 +55,7 @@ Front-End project structure is inspired by [CRUV](https://frontarm.com/james-k-n
 ## Development setup
 
 ```sh
-$ go get -u github.com/micro/protobuf/{proto,protoc-gen-go}
+go get -u github.com/micro/protobuf/{proto,protoc-gen-go}
 ```
 
 ## Kafka
