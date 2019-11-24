@@ -9,8 +9,8 @@ COPY ./internal ./internal
 COPY ./cmd ./cmd
 COPY ./web/app/dist ./web/app/dist
 COPY ./go.mod ./go.sum ./
+# COPY . ./
 ENV GO111MODULE=on
-ENV IMPORT_URL=github.com/oswee/public-web
 RUN go mod download
 RUN go mod verify
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o main cmd/main.go
@@ -20,6 +20,7 @@ LABEL maintainer="dzintars.klavins@gmail.com"
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /build .
+COPY --from=builder ./go.mod ./go.sum ./
 USER appuser
 EXPOSE 8080
 CMD ["./main", "-http-port=8080", "-log-level=-1", "-log-time-format=2006-01-02T15:04:05.999999999Z07:00"] --v
