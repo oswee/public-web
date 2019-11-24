@@ -10,6 +10,7 @@ COPY ./cmd ./cmd
 COPY ./web/app/dist ./web/app/dist
 COPY ./go.mod ./go.sum ./
 ENV GO111MODULE=on
+ENV IMPORT_URL=github.com/oswee/public-web
 RUN go mod download
 RUN go mod verify
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -installsuffix cgo -ldflags '-extldflags "-static"' -o main cmd/main.go
