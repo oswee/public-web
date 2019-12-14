@@ -20,7 +20,6 @@ LABEL maintainer="dzintars.klavins@gmail.com"
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
 COPY --from=builder /etc/passwd /etc/passwd
 COPY --from=builder /build .
-COPY --from=builder ./go.mod ./go.sum ./
 USER appuser
 EXPOSE 8080
 CMD ["./main", "-http-port=8080", "-log-level=-1", "-log-time-format=2006-01-02T15:04:05.999999999Z07:00"] --v
