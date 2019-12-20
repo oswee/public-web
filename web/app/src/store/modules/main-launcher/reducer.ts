@@ -1,15 +1,10 @@
-import { Reducer } from 'redux';
-import { LauncherActions, LAUNCHER } from './actions';
-
-export interface LauncherState {
-	isVisible: boolean;
-}
+import { LAUNCHER, LauncherActionTypes, LauncherState } from './types';
 
 const initialState: LauncherState = {
 	isVisible: false,
 };
 
-export default <Reducer>(state: LauncherState = initialState, action: LauncherActions) => {
+export const mainLauncherReducer = (state: LauncherState = initialState, action: LauncherActionTypes) => {
 	switch (action.type) {
 		case LAUNCHER.TOGGLE:
 			return { ...state, isVisible: !state.isVisible };

@@ -1,6 +1,6 @@
 import { customElement, property } from 'lit-element';
 import GlobalStyle from '../../assets/global-style';
-import { SystemShell } from '../../containers/system-shell';
+import SystemShell from '../../containers/system-shell';
 import Style from './style';
 import template from './template';
 

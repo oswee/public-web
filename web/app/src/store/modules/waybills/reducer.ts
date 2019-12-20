@@ -8,7 +8,7 @@ const initialState: WaybillsState = {
 	lastSelectedWaybill: '',
 };
 
-export default <Reducer>(state: WaybillsState = initialState, action: WaybillsActionTypes) => {
+export const waybillsReducer = (state: WaybillsState = initialState, action: WaybillsActionTypes) => {
 	switch (action.type) {
 		case WAYBILLS.LOAD:
 			return state;

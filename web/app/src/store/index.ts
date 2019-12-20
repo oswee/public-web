@@ -1,44 +1,76 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import createWebSocketMiddleware from './middleware/websocket';
-import createSagaMiddleware from 'redux-saga';
-import logMiddleware from './middleware/log';
+// import createWebSocketMiddleware from './middleware/websocket';
+// import logMiddleware from './middleware/log';
+
 import rootReducer from './reducer';
-import root from './saga';
+import middleware from './middleware';
+import { loadState } from './storage';
+import rootSaga from './saga';
+import { sagaMiddleware } from './middleware/saga'
+
+// import storage from './storage';
 
 // https://github.com/zalmoxisus/redux-devtools-extension/blob/master/docs/API/Arguments.md
 // https://github.com/zalmoxisus/remote-redux-devtools/issues/129
 
 // Some interesting store wrapping construction - https://youtu.be/Om4Lb8c5Lbg?list=PLMV09mSPNaQlWvqEwF6TfHM-CVM6lXv39&t=790
 
-const configureStore = () => {
-	const options = {
-		name: `Redux`,
-		realtime: true,
-		trace: true,
-		traceLimit: 25,
-	};
+		// const configureStore = () => {
+		// 	const options = {
+		// 		name: `Redux`,
+		// 		realtime: true,
+		// 		trace: true,
+		// 		traceLimit: 25,
+		// 	};
 
-	const composeEnhancers = composeWithDevTools(options);
-	const sagaMiddleware = createSagaMiddleware();
-	const websocketMiddleware = createWebSocketMiddleware();
+		// 	const composeEnhancers = composeWithDevTools(options);
+		// 	const sagaMiddleware = createSagaMiddleware();
+		// 	// const websocketMiddleware = createWebSocketMiddleware();
 
-	const middlewares = [logMiddleware, websocketMiddleware, sagaMiddleware];
+		// 	const middlewares = [
+		// 		storage,
+		// 		historyMiddleware,
+		// 		routeMiddleware,
+		// 		// logMiddleware,
+		// 		// websocketMiddleware,
+		// 		sagaMiddleware
+		// 	];
 
-	const store = createStore(
-		rootReducer,
-		composeEnhancers(
-			applyMiddleware(...middlewares),
-			/* other store enhancers if any */
-		),
-	);
+		// 	const state = loadState();
 
-	sagaMiddleware.run(root);
+		// 	const store = createStore(
+		// 		rootReducer,
+		// 		state,
+		// 		composeEnhancers(
+		// 			applyMiddleware(...middlewares),
+		// 			/* other store enhancers if any */
+		// 		),
+		// 	);
 
-	return store;
+		// 	sagaMiddleware.run(rootSaga);
+
+		// 	return store;
+		// };
+
+		// const store = configureStore();
+
+const options = {
+	name: `Redux`,
+	realtime: true,
+	trace: true,
+	traceLimit: 25,
 };
 
-const store = configureStore();
+const composeEnhancers = composeWithDevTools(options) || compose;
+
+const composedEnhancer = composeEnhancers(applyMiddleware(...middleware));
+
+const preloadedState = loadState();
+const store = createStore( rootReducer, preloadedState, composedEnhancer );
+
+sagaMiddleware.run(rootSaga);
+
 
 export default store;
 

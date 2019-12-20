@@ -3,13 +3,13 @@ import { SessionTypes, SessionActionTypes, SessionState } from './types';
 
 const initialState: SessionState = {
 	session: {
-		live: false,
+		live: true,
 		email: '',
 	},
 	isLoading: false,
 };
 
-export default <Reducer>(state: SessionState = initialState, action: SessionActionTypes) => {
+export const sessionReducer = (state: SessionState = initialState, action: SessionActionTypes) => {
 	switch (action.type) {
 		case SessionTypes.SESSION_SIGNIN:
 			console.log(action.payload)

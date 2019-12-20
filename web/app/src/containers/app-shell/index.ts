@@ -1,5 +1,5 @@
 import { customElement, html, property } from 'lit-element';
-import { SystemShell } from '../system-shell';
+import SystemShell from '../system-shell';
 import { connect } from 'pwa-helpers';
 import store, { RootState, getSession } from '../../store';
 import GlobalStyle from '../../assets/global-style';

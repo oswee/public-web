@@ -3,6 +3,7 @@ import { setSignup, setSignupError } from './actions';
 import { SIGNUP } from './types';
 import { fetchSignup } from './api';
 
+
 function* handleSignupSubmit() {
 	try {
 		const signup = yield call(fetchSignup);

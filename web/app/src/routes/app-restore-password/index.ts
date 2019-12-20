@@ -1,5 +1,5 @@
 import { customElement, html } from 'lit-element';
-import { SystemShell } from '../../containers/system-shell';
+import SystemShell from '../../containers/system-shell';
 import GlobalStyle from '../../assets/global-style';
 import Style from './style';
 import '../../views/legal-info';

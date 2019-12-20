@@ -2,7 +2,7 @@ import { LitElement, customElement } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import store from '../../store';
 import GlobalStyle from '../../assets/global-style';
-import { Router } from '@vaadin/router';
+// import { Router } from '@vaadin/router';
 import template from './template';
 import Style from './style';
 
@@ -16,7 +16,7 @@ export class MainNavigationPublic extends connect(store)(LitElement) {
 
 	switchRoute(route) {
 		// console.log(Router.urlForName('/signin'));
-		Router.go(`/${route}`);
+		// Router.go(`/${route}`);
 	}
 }
 

@@ -1,7 +1,7 @@
 import { LitElement, html, customElement, property } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import store, { RootState, hideLauncher, getSession, submitSignout } from '../../store';
-import { Router } from '@vaadin/router';
+// import { Router } from '@vaadin/router';
 import GlobalStyle from '../../assets/global-style';
 import Style from './style';
 import '../main-navigation-public';
@@ -41,7 +41,7 @@ export class MainTaskbar extends connect(store)(LitElement) {
 	switchRoute(route) {
 		// console.log(Router.urlForName('/signin'));
 		store.dispatch(hideLauncher());
-		Router.go(`/${route}`);
+		// Router.go(`/${route}`);
 	}
 
 	public signOut() {

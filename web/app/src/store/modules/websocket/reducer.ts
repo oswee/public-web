@@ -8,7 +8,7 @@ const initialState: SocketState = {
     message_history: [],
 };
 
-export default <Reducer>(state: SocketState = initialState, action: SocketActionTypes) => {
+export const socketReducer = (state: SocketState = initialState, action: SocketActionTypes) => {
     switch (action.type) {
       case SocketTypes.SOCKETS_CONNECTING:
         return Object.assign({}, state, {

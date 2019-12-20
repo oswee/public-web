@@ -1,17 +1,16 @@
 import { combineReducers } from 'redux';
-import signup from './modules/signup/reducer';
-import { SignupState } from './modules/signup/types';
-import session from './modules/session/reducer';
-import { SessionState } from './modules/session/types';
-import launcher, { LauncherState } from './modules/main-launcher/reducer';
-import socket from './modules/websocket/reducer';
-import { SocketState } from './modules/websocket/types';
-import system from './modules/system/reducer';
-import { SystemState } from './modules/system/types';
-import waybills from './modules/waybills/reducer';
-import { WaybillsState } from './modules/waybills/types';
+
+import { routerReducer as router, RouterState } from './modules/router';
+import { systemReducer as system, SystemState } from './modules/system';
+import { sessionReducer as session, SessionState } from './modules/session';
+import { signupReducer as signup, SignupState } from './modules/signup';
+import { mainLauncherReducer as launcher, LauncherState } from './modules/main-launcher';
+import { waybillsReducer as waybills, WaybillsState } from './modules/waybills';
+import { socketReducer as socket, SocketState } from './modules/websocket';
+
 
 export interface RootState {
+	readonly router: RouterState;
 	readonly signup: SignupState;
 	readonly session: SessionState;
 	readonly socket: SocketState;
@@ -20,7 +19,9 @@ export interface RootState {
 	readonly waybills: WaybillsState;
 }
 
+// Build the root reducer
 export default combineReducers<RootState>({
+	router,
 	signup,
 	session,
 	socket,

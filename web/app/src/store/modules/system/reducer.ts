@@ -120,7 +120,7 @@ const initialState: SystemState = {
 	wsConnected: false,
 };
 
-export default <Reducer>(state: SystemState = initialState, action: SystemActionTypes) => {
+export const systemReducer = (state: SystemState = initialState, action: SystemActionTypes) => {
 	switch (action.type) {
 		default:
 			return state;

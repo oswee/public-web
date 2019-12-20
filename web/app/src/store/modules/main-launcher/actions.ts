@@ -1,54 +1,21 @@
-export enum LAUNCHER {
-	TOGGLE = 'LAUNCHER_TOGGLE',
-	SHOW = 'LAUNCHER_SHOW',
-	HIDE = 'LAUNCHER_HIDE',
-	SHOWN = 'LAUNCHER_SHOWN',
-	HIDDEN = 'LAUNCHER_HIDDEN',
-}
+import { LAUNCHER, LauncherActionTypes } from './types';
 
-interface ToggleLauncherAction {
-	readonly type: LAUNCHER.TOGGLE;
-}
-
-interface ShowLauncherAction {
-	readonly type: LAUNCHER.SHOW;
-}
-
-interface HideLauncherAction {
-	readonly type: LAUNCHER.HIDE;
-}
-
-interface LauncherShownAction {
-	readonly type: LAUNCHER.SHOWN;
-}
-
-interface LauncherHiddenAction {
-	readonly type: LAUNCHER.HIDDEN;
-}
-
-export type LauncherActions =
-	| LauncherShownAction
-	| LauncherHiddenAction
-	| HideLauncherAction
-	| ShowLauncherAction
-	| ToggleLauncherAction;
-
-export const toggleLauncher = (): ToggleLauncherAction => ({
+export const toggleLauncher = (): LauncherActionTypes => ({
 	type: LAUNCHER.TOGGLE,
 });
 
-export const showLauncher = (): ShowLauncherAction => ({
+export const showLauncher = (): LauncherActionTypes => ({
 	type: LAUNCHER.SHOW,
 });
 
-export const hideLauncher = (): HideLauncherAction => ({
+export const hideLauncher = (): LauncherActionTypes => ({
 	type: LAUNCHER.HIDE,
 });
 
-export const launcherShown = (): LauncherShownAction => ({
+export const launcherShown = (): LauncherActionTypes => ({
 	type: LAUNCHER.SHOWN,
 });
 
-export const launcherHidden = (): LauncherHiddenAction => ({
+export const launcherHidden = (): LauncherActionTypes => ({
 	type: LAUNCHER.HIDDEN,
 });

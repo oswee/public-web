@@ -9,7 +9,7 @@ const initialState: SignupState = {
 	isLoading: false,
 };
 
-export default <Reducer>(state: SignupState = initialState, action: SignupActionTypes) => {
+export const signupReducer = (state: SignupState = initialState, action: SignupActionTypes) => {
 	switch (action.type) {
 		case SIGNUP.SUBMIT:
 			return {

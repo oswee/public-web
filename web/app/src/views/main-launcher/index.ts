@@ -1,6 +1,7 @@
 import { LitElement, customElement, html, css } from 'lit-element';
 import { repeat } from 'lit-html/directives/repeat';
 import { connect } from 'pwa-helpers';
+import { createBrowserHistory, routerReducer, routerMiddleware, startListener, push } from '../../store/modules/router';
 import store, {
 	RootState,
 	getPublicApps,
@@ -9,7 +10,7 @@ import store, {
 	launcherShown,
 	launcherHidden,
 } from '../../store';
-import { Router } from '@vaadin/router';
+// import { Router } from '@vaadin/router';
 import {EventPathIncludes } from '../../utils';
 import '../app-shortcut';
 
@@ -86,9 +87,9 @@ export class MainLauncher extends connect(store)(LitElement) {
 		`;
 	}//
 
-	switchRoute(route) {
+	switchRoute(route: string) {
 		store.dispatch(hideLauncher());
-		Router.go(`/${route}`);
+		store.dispatch(push(`/${route}`));
 	}
 
 	openApp(e) {

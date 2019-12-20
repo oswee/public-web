@@ -1,7 +1,7 @@
 import { LitElement, html, property } from 'lit-element';
 import { connect } from 'pwa-helpers';
 import store, { loadWaybills, getWaybills, submitSignup } from '../../store';
-import { SystemShell } from '../../containers/system-shell';
+import SystemShell from '../../containers/system-shell';
 import GlobalStyle from '../../assets/global-style';
 import Style from './style';
 import '../../views/legal-info';
