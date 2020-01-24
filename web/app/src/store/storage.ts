@@ -1,38 +1,63 @@
-import { MiddlewareAPI, Dispatch, Action } from 'redux';
+import { MiddlewareAPI, Dispatch, Middleware, AnyAction } from 'redux';
 import { RootState } from './reducer';
 
-const storageKey = 'system-state';
+declare global {
+  interface Window {
+    requestIdleCallback: (
+      callback: (deadline: RequestIdleCallbackDeadline) => void,
+      opts?: RequestIdleCallbackOptions,
+    ) => RequestIdleCallbackHandle;
+    cancelIdleCallback: (handle: RequestIdleCallbackHandle) => void;
+  }
 
-export const loadState = () : RootState => {
-    try {
-        const serializedState = localStorage.getItem(storageKey);
-
-        if (serializedState === null) {
-            return undefined;
-        }
-
-        return <RootState>JSON.parse(serializedState);
-
-        } catch(err) {
-            console.error(err);
-            return undefined;
-        }
+  type RequestIdleCallbackHandle = any;
+  type RequestIdleCallbackOptions = {
+    timeout: number;
+  };
+  type RequestIdleCallbackDeadline = {
+    readonly didTimeout: boolean;
+    timeRemaining: () => number;
+  };
 }
 
-export default ({ getState }: MiddlewareAPI<Dispatch, RootState>) => {
-    return (next: Dispatch) => (action: Action) => {
-        const value = next(action);
-        const state = getState();
-        try {
-            const serializedState = JSON.stringify({
-                // only store whatever branch of the state should be persisted
-                selected: state
-            });
-            localStorage.setItem(storageKey, serializedState);
-        }
-        catch (err) {
-            console.error(err);
-        }
-        return value;
-    };
-}
+const storageKey = `my-app`;
+const storageVersion = '20190731';
+const shouldPersist = (type: string) => true; // type.startsWith('CART_') || type.startsWith('ORDER_')
+
+export const storageMiddleware: Middleware<Dispatch> = (store: MiddlewareAPI) => next => (
+  action: AnyAction,
+) => {
+  const result = next(action);
+  const persist = shouldPersist(action.type);
+
+  if (persist) {
+    // TODO: key ref to callback, only schedule if not already done
+    window.requestIdleCallback(() => {
+      const state: RootState = store.getState();
+      const cache = {
+        version: storageVersion,
+        timestamp: new Date(),
+        state: {
+          users: state.users,
+        },
+      };
+      localStorage.setItem(storageKey, JSON.stringify(cache));
+    });
+  }
+
+  return result;
+};
+
+export const initialState = () => {
+  const json = localStorage.getItem(storageKey);
+  if (!json) return undefined;
+
+  const cache = JSON.parse(json);
+  if (cache.version !== storageVersion) return undefined;
+
+  const age_ms = Date.now() - new Date(cache.timestamp).getTime();
+  const age_days = age_ms / 1000 / 60 / 60 / 24;
+  if (age_days > 365) return undefined;
+
+  return <RootState>cache.state;
+};

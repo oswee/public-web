@@ -1,25 +1,7 @@
-import { RouterTypes } from './types';
+import { routerMiddleware, startListener } from 'redux-first-routing';
+import { history } from './history';
+import { Store } from 'redux';
 
-const routerMiddleware = (history) => () => (next) => (action) => {
-  switch (action.type) {
-    case RouterTypes.ROUTER_PUSH:
-      history.push(action.payload);
-      break;
-    case RouterTypes.ROUTER_REPLACE:
-      history.replace(action.payload);
-      break;
-    case RouterTypes.ROUTER_GO:
-      history.go(action.payload);
-      break;
-    case RouterTypes.ROUTER_GO_BACK:
-      history.goBack();
-      break;
-    case RouterTypes.ROUTER_GO_FORWARD:
-      history.goForward();
-      break;
-    default:
-      return next(action);
-  }
-};
+export const historyMiddleware = routerMiddleware(history);
 
-export { routerMiddleware };
+export const startRouting = (store: Store) => startListener(history, store);

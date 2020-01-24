@@ -1,4 +1,3 @@
-// https://github.com/ReactTraining/history/issues/680#issuecomment-509488093
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from 'redux-first-routing';
 
-export { createBrowserHistory };
+export const history = createBrowserHistory();

@@ -1,20 +1,10 @@
-import { RouterTypes, RouterState, RouterActionTypes } from './types';
+import { routerReducer } from 'redux-first-routing';
 
-const initialState: RouterState = {
-    pathname: '/',
-    search: '',
-    queries: {},
-    hash: '',
-};
+export interface RoutingState {
+  pathname: string;
+  search: string;
+  queries: any;
+  hash: string;
+}
 
-export const routerReducer = (state: RouterState = initialState, action: RouterActionTypes) => {
-    switch (action.type) {
-        case RouterTypes.ROUTER_LOCATION_CHANGE:
-        return {
-            ...state,
-            ...action.payload,
-        };
-        default:
-        return state;
-    }
-};
+export default routerReducer;

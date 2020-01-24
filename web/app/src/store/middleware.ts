@@ -1,11 +1,5 @@
-import storage from './storage';
-import { sagaMiddleware } from './middleware/saga';
-import { historyMiddleware, routeMiddleware } from './router';
+import { historyMiddleware } from './modules/router/middleware';
+import { sagaMiddleware } from './sagas';
+import { storageMiddleware } from './storage';
 
-
-export default [ 
-    storage,
-    sagaMiddleware,
-    historyMiddleware,
-    routeMiddleware,
-];
+export const middleware = [historyMiddleware, sagaMiddleware, storageMiddleware];
