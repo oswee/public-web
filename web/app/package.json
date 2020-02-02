@@ -72,7 +72,7 @@
     "@types/webpack": "^4.41.0",
     "@typescript-eslint/eslint-plugin": "^2.11.0",
     "@typescript-eslint/parser": "^2.11.0",
-    "@vaadin/router": "^1.5.2",
+    "@vaadin/router": "^1.6.0",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
