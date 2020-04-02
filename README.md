@@ -75,4 +75,4 @@ docker run --rm -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 -p 9581-9585:95
 
 ## Orders page
 
-![oswee.com Orders page screenshot](https://raw.githubusercontent.com/oswee/public-web/master/assets/screenshot-1.png)
+![oswee.com Orders page screenshot](https://github.com/oswee/public-web/blob/first-routing/assets/screenshot-1.png)
