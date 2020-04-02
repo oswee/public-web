@@ -3,10 +3,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { middleware } from './middleware';
 import { rootReducer } from './reducer';
-import { startRouting } from './modules/router/middleware';
-import { startReselect } from './reselect';
-import { startSagas } from './sagas';
 import { initialState } from './storage';
+import { startSagas } from './sagas';
+import { startRouting } from './modules/routing/middleware';
+import { startReselect } from './reselect';
 
 const composeEnhancers = composeWithDevTools({ actionsBlacklist: [] });
 const enhancer = composeEnhancers(applyMiddleware(...middleware));

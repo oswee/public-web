@@ -1,5 +1,7 @@
 # Oswee
 
+> UPDATE: This project are in broken stage and most likely will not be maintained anymore.
+
 This is Front-end App for a **personal** distributed microservices **pet-project**.
 
 This repository is part of several repositories of working solution.
@@ -70,3 +72,7 @@ docker run --rm -p 2181:2181 -p 3030:3030 -p 8081-8083:8081-8083 -p 9581-9585:95
 ## Sign In page
 
 ![oswee.com Sign In page screenshot](https://raw.githubusercontent.com/oswee/public-web/master/assets/sign-in-fullscreen.png)
+
+## Orders page
+
+![oswee.com Orders page screenshot](https://raw.githubusercontent.com/oswee/public-web/master/assets/screenshot-1.png)

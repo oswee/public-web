@@ -5,7 +5,7 @@ declare global {
   interface Window {
     requestIdleCallback: (
       callback: (deadline: RequestIdleCallbackDeadline) => void,
-      opts?: RequestIdleCallbackOptions,
+      opts?: RequestIdleCallbackOptions
     ) => RequestIdleCallbackHandle;
     cancelIdleCallback: (handle: RequestIdleCallbackHandle) => void;
   }
@@ -24,9 +24,9 @@ const storageKey = `my-app`;
 const storageVersion = '20190731';
 const shouldPersist = (type: string) => true; // type.startsWith('CART_') || type.startsWith('ORDER_')
 
-export const storageMiddleware: Middleware<Dispatch> = (store: MiddlewareAPI) => next => (
-  action: AnyAction,
-) => {
+export const storageMiddleware: Middleware<Dispatch> = (
+  store: MiddlewareAPI
+) => next => (action: AnyAction) => {
   const result = next(action);
   const persist = shouldPersist(action.type);
 
@@ -48,7 +48,7 @@ export const storageMiddleware: Middleware<Dispatch> = (store: MiddlewareAPI) =>
   return result;
 };
 
-export const initialState = () => {
+export const initialState = (): any => {
   const json = localStorage.getItem(storageKey);
   if (!json) return undefined;
 

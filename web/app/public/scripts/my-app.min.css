@@ -1,0 +1,79 @@
+:root {
+  --color-base-dark: hsla(0, 0%, 0%, 1);
+  --color-base-light: hsla(360, 100%, 100%, 1);
+  --color-light: hsla(360, 100%, 100%, 1);
+  --color-dark: hsla(0, 0%, 0%, 1);
+  --color-primary: hsla(215, 100%, 50%, 1);
+  --color-secondary: hsla(212, 14%, 19%, 1);
+  --color-danger: hsla(3, 98%, 46%, 1);
+  --color-success-2l: hsla(101, 63%, 49%, 1);
+  --color-success-1l: hsla(101, 79%, 44%, 1);
+  --color-success: hsla(101, 100%, 38%, 1);
+  --color-warning: hsla(44, 98%, 50%, 1);
+  --color-info: hsla(284, 100%, 62%, 1);
+  --color-dodgerblue-10l: hsla(215, 100%, 95%, 1);
+  --color-dodgerblue-9l: hsla(216, 100%, 91%, 1);
+  --color-dodgerblue-8l: hsla(215, 100%, 86%, 1);
+  --color-dodgerblue-7l: hsla(215, 100%, 82%, 1);
+  --color-dodgerblue-6l: hsla(215, 100%, 77%, 1);
+  --color-dodgerblue-5l: hsla(215, 100%, 73%, 1);
+  --color-dodgerblue-4l: hsla(215, 100%, 68%, 1);
+  --color-dodgerblue-3l: hsla(215, 100%, 64%, 1);
+  --color-dodgerblue-2l: hsla(215, 100%, 59%, 1);
+  --color-dodgerblue-1l: hsla(215, 100%, 55%, 1);
+  --color-dodgerblue-main: hsla(215, 100%, 50%, 1);
+  --color-dodgerblue-1d: hsla(215, 100%, 45%, 1);
+  --color-dodgerblue-2d: hsla(215, 100%, 41%, 1);
+  --color-dodgerblue-3d: hsla(215, 100%, 36%, 1);
+  --color-dodgerblue-4d: hsla(215, 100%, 32%, 1);
+  --color-dodgerblue-5d: hsla(215, 100%, 27%, 1);
+  --color-dodgerblue-6d: hsla(215, 100%, 23%, 1);
+  --color-dodgerblue-7d: hsla(215, 100%, 18%, 1);
+  --color-dodgerblue-8d: hsla(215, 100%, 14%, 1);
+  --color-dodgerblue-9d: hsla(214, 100%, 9%, 1);
+  --color-dodgerblue-10d: hsla(215, 100%, 5%, 1);
+  --color-lawngreen-main: #3ec402;
+  --font-main: Montserrat, sans-serif;
+  --text-sm: 0.75rem;
+  --text-md: 0.875rem;
+  --margin-s: 0.25rem;
+  --size-ss: 1.125rem;
+  --size-xs: 1.625rem;
+  --size-s: 1.875rem;
+  --size-xm: 2rem;
+  --size-m: 2.25rem;
+  --size-ml: 2.5rem;
+  --size-l: 2.75rem;
+  --size-sl: 3rem;
+  --size-xl: 3.5rem;
+  --size-xxl: 4.5rem; }
+
+* {
+  font-family: Montserrat, sans-serif;
+  text-rendering: geometricPrecision; }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  margin: 0;
+  padding: 0; }
+
+svg path {
+  fill: inherit; }
+
+body {
+  position: relative;
+  display: grid;
+  place-items: center center; }
